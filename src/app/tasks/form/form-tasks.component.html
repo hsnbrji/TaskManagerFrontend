@@ -1,0 +1,48 @@
+<form [formGroup]="taskGroup">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput placeholder="name">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>User Id</mat-label>
+          <input formControlName="userId" matInput placeholder="User Id">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <input matInput formControlName="due" [matDatepicker]="picker" placeholder="Due">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Notes</mat-label>
+          <input formControlName="notes" matInput placeholder="Notes">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <input type="number" formControlName="status" matInput placeholder="Status">
+        </mat-form-field>
+      </div>
+      <div class="col">
+        <mat-form-field appearance="outline">
+          <mat-label>Section Id</mat-label>
+          <input type="number" formControlName="sectionId" matInput placeholder="Section Id">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col text-right">
+        <button (click)="save()" [disabled]="!taskGroup.valid" color="primary" mat-flat-button>Save</button>
+      </div>
+    </div>
+  </div>
+</form>
